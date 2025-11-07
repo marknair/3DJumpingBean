@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://4y3egkmar7q8"]
+
+[ext_resource type="Script" uid="uid://t377d1bkr081" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="ArrayMesh" uid="uid://cv63qxwx7c2m2" path="res://Models/Characters/character-male-b.obj" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://bf7vo745wm23q" path="res://Scripts/player_model.gd" id="3_6t5aa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cvnsp"]
+radius = 0.17486572
+height = 0.34973145
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(0.9986865, 0, 0.051237874, 0, 1, 0, -0.051237874, 0, 0.9986865, 0, 0, 0)
+script = ExtResource("1_cvnsp")
+move_speed = 10.0
+
+[node name="PlayerModel" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_v0iea")
+skeleton = NodePath("../..")
+script = ExtResource("3_6t5aa")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.9999614, -0.008555898, -0.0020250753, -0.008759958, 0.9497647, 0.3128423, -0.0007533021, 0.3128479, -0.949803, -0.007418819, 0.708403, -1.5125124)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.3370095, 0, 3.7252903e-09, 0, 1.369, 0, -3.2782555e-07, 0, 1, 0, 0.19727838, 0)
+shape = SubResource("CapsuleShape3D_cvnsp")
