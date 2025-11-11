@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://darc1t5pia84j"]
+
+[ext_resource type="Script" uid="uid://bp0421hhqnwlg" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="ArrayMesh" uid="uid://botm08ple3ka1" path="res://Models/Platformer/saw.obj" id="1_hghv2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1f0kj"]
+size = Vector3(0.73342896, 0.814209, 0.22546387)
+
+[node name="Enemy" type="Area3D"]
+script = ExtResource("1_1f0kj")
+
+[node name="model" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_hghv2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0058810413, 0.017866254, -0.0149382055)
+shape = SubResource("BoxShape3D_1f0kj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

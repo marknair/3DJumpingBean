@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://xkx0e07x3w6o"]
+[gd_scene load_steps=16 format=3 uid="uid://xkx0e07x3w6o"]
 
 [ext_resource type="ArrayMesh" uid="uid://dfy6rwk5n5ybr" path="res://Models/Platformer/block-grass-low-large.obj" id="1_oiua3"]
 [ext_resource type="ArrayMesh" uid="uid://bvfug0lafcd5" path="res://Models/Platformer/block-grass-long.obj" id="2_nw7js"]
@@ -6,6 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dxbirjmgh1o63" path="res://Models/Platformer/hedge.obj" id="5_5r5j8"]
 [ext_resource type="ArrayMesh" uid="uid://cj05uorlgg58x" path="res://Models/Platformer/block-snow-large-slope-narrow.obj" id="6_akpl7"]
 [ext_resource type="PackedScene" uid="uid://4y3egkmar7q8" path="res://Scenes/player.tscn" id="7_5r5j8"]
+[ext_resource type="PackedScene" uid="uid://darc1t5pia84j" path="res://Scenes/enemy.tscn" id="7_akpl7"]
 [ext_resource type="ArrayMesh" uid="uid://b2u7b75k76y8s" path="res://Models/Platformer/block-snow-low-large.obj" id="7_aur7v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_akpl7"]
@@ -121,6 +122,9 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.250873, 0, -7.9129047)
 mesh = ExtResource("7_aur7v")
 skeleton = NodePath("../..")
+
+[node name="Enemy" parent="Platforms" instance=ExtResource("7_akpl7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.509555, 0.4703451, 1.461749)
 
 [node name="Player" parent="." instance=ExtResource("7_5r5j8")]
 transform = Transform3D(-0.99997693, 0, 0.0067892224, 0, 1, 0, -0.0067892224, 0, -0.99997693, 0.5700046, 0.04226896, 0.18012094)

@@ -23,4 +23,23 @@ func _move_bob(delta):
 	if move_speed < 0.1 or not player.is_on_floor():
 		scale.y = 1
 		return
+		
+	var time = Time.get_unix_time_from_system()
+	var y_scale = 1 + (sin(time * 30) * 0.08)
+	scale.y = y_scale
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
 	
