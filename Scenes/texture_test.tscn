@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxd3asn382864"]
+
+[ext_resource type="Texture2D" uid="uid://cwrdmke4uu2no" path="res://Textures/rocky_trail_02_diff_4k.png" id="1_ou1hf"]
+[ext_resource type="Texture2D" uid="uid://dj2rq56xsilwe" path="res://Textures/rocky_trail_02_nor_gl_4k.png" id="2_ubaeo"]
+[ext_resource type="Texture2D" uid="uid://b6r8bbov16quk" path="res://Textures/rocky_trail_02_rough_4k.png" id="3_yrvt6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngjyc"]
+albedo_texture = ExtResource("1_ou1hf")
+roughness_texture = ExtResource("3_yrvt6")
+normal_enabled = true
+normal_texture = ExtResource("2_ubaeo")
+uv1_scale = Vector3(60, 60, 60)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ubput"]
+size = Vector2(300, 300)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pre8m"]
+
+[node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.47849247, 0.7604497, -0.43904573, 1.60799e-08, 0.49999994, 0.86602557, 0.8780919, -0.41438672, 0.23924619, 0, 2.5611145, 0)
+shadow_enabled = true
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ngjyc")
+mesh = SubResource("PlaneMesh_ubput")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_pre8m")

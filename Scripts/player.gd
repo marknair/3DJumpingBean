@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@export var health : int = 3
 @export var move_speed : float = 3.0
 @export var jump_force : float = 8.0
 @export var gravity : float = 20.0
@@ -22,3 +23,20 @@ func _physics_process(delta: float) -> void:
 	
 	
 	move_and_slide()
+	
+func take_damage(amount: int):
+	health -= amount
+	if health <= 0:
+		_game_over()
+		
+func _game_over():
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	
+	
+	
+	
+	
+	
+	
+	
+	

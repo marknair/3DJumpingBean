@@ -8,6 +8,7 @@ size = Vector3(0.73342896, 0.814209, 0.22546387)
 
 [node name="Enemy" type="Area3D"]
 script = ExtResource("1_1f0kj")
+move_direction = Vector3(10, 0, 0)
 
 [node name="model" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_hghv2")

@@ -57,7 +57,7 @@ shadow_enabled = true
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Square Platform 2" type="MeshInstance3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6056376, 0.33374155, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0889115, 0.33374155, 0)
 mesh = ExtResource("1_oiua3")
 skeleton = NodePath("../BlockGrassLowLarge")
 
@@ -67,7 +67,7 @@ skeleton = NodePath("../BlockGrassLowLarge")
 shape = SubResource("ConvexPolygonShape3D_5r5j8")
 
 [node name="BlockGrassLowLarge" type="MeshInstance3D" parent="Platforms"]
-transform = Transform3D(1.844129, 0, 0, 0, 1, 0, 0, 0, 2.13374, 0.36395907, -0.48328602, 0)
+transform = Transform3D(2.8523443, 0, 0, 0, 1, 0, 0, 0, 2.13374, 0.8268424, -0.48328602, 0.006528616)
 mesh = ExtResource("1_oiua3")
 skeleton = NodePath("../..")
 
@@ -124,7 +124,7 @@ mesh = ExtResource("7_aur7v")
 skeleton = NodePath("../..")
 
 [node name="Enemy" parent="Platforms" instance=ExtResource("7_akpl7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.509555, 0.4703451, 1.461749)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.533279, 0.4703451, 0.06966859)
 
 [node name="Player" parent="." instance=ExtResource("7_5r5j8")]
 transform = Transform3D(-0.99997693, 0, 0.0067892224, 0, 1, 0, -0.0067892224, 0, -0.99997693, 0.5700046, 0.04226896, 0.18012094)

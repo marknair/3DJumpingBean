@@ -21,4 +21,4 @@ func _on_body_entered(body: Node3D) -> void:
 	if not body.is_in_group("Player"):
 		return
 		
-	print("Take damage.")
+	body.take_damage(1)
