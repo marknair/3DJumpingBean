@@ -8,6 +8,8 @@ extends CharacterBody3D
 @onready var camera : Camera3D = $Camera3D
 
 func _physics_process(delta: float) -> void:
+	if global_position.y < -5:
+		_game_over()
 	# Apply gravity
 	velocity.y -= gravity * delta
 	
@@ -30,7 +32,10 @@ func take_damage(amount: int):
 		_game_over()
 		
 func _game_over():
-	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	get_tree().reload_current_scene()
+	#get_tree().change_scene_to_file("res://Scenes/Level_1.tscn")
+	
+
 	
 	
 	
