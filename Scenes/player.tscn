@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://4y3egkmar7q8"]
+[gd_scene load_steps=6 format=3 uid="uid://4y3egkmar7q8"]
 
 [ext_resource type="Script" uid="uid://t377d1bkr081" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="ArrayMesh" uid="uid://cv63qxwx7c2m2" path="res://Models/Characters/character-male-b.obj" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://bf7vo745wm23q" path="res://Scripts/player_model.gd" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://4o2gegeyphbr" path="res://Sprites/hud_heartFull.png" id="4_vgqql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cvnsp"]
 radius = 0.17486572
@@ -24,3 +25,29 @@ transform = Transform3D(-0.9999614, -0.008555898, -0.0020250753, -0.008759958, 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.3370095, 0, 3.7252903e-09, 0, 1.369, 0, -3.2782555e-07, 0, 1, 0, 0.19727838, 0)
 shape = SubResource("CapsuleShape3D_cvnsp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Heart" type="TextureRect" parent="CanvasLayer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("4_vgqql")
+
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("4_vgqql")
+
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("4_vgqql")
+
+[node name="Heart4" type="TextureRect" parent="CanvasLayer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("4_vgqql")
+
+[node name="Heart5" type="TextureRect" parent="CanvasLayer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("4_vgqql")

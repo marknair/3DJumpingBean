@@ -26,5 +26,5 @@ func _on_body_entered(body: Node3D) -> void:
 	if not body.is_in_group("Player"):
 		return
 	
-	# This is a placeholder to increase the score
+	body.increase_score(1)
 	self.queue_free()

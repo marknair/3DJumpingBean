@@ -27,19 +27,3 @@ func _move_bob(delta):
 	var time = Time.get_unix_time_from_system()
 	var y_scale = 1 + (sin(time * 30) * 0.08)
 	scale.y = y_scale
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
-	

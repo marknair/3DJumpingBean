@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://xkx0e07x3w6o"]
+[gd_scene load_steps=17 format=3 uid="uid://xkx0e07x3w6o"]
 
 [ext_resource type="ArrayMesh" uid="uid://dfy6rwk5n5ybr" path="res://Models/Platformer/block-grass-low-large.obj" id="1_oiua3"]
 [ext_resource type="ArrayMesh" uid="uid://bvfug0lafcd5" path="res://Models/Platformer/block-grass-long.obj" id="2_nw7js"]
@@ -8,8 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://4y3egkmar7q8" path="res://Scenes/player.tscn" id="7_5r5j8"]
 [ext_resource type="PackedScene" uid="uid://darc1t5pia84j" path="res://Scenes/enemy.tscn" id="7_akpl7"]
 [ext_resource type="ArrayMesh" uid="uid://b2u7b75k76y8s" path="res://Models/Platformer/block-snow-low-large.obj" id="7_aur7v"]
-[ext_resource type="Script" uid="uid://b2wtnxf2sdt" path="res://Scripts/coin.gd" id="9_ptpgp"]
-[ext_resource type="ArrayMesh" uid="uid://c2ju0sgdqsu1r" path="res://Models/Platformer/coin-gold.obj" id="10_2uqsa"]
+[ext_resource type="PackedScene" uid="uid://bxkdmtiymhdov" path="res://Scenes/coin.tscn" id="9_aur7v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_akpl7"]
 sky_top_color = Color(0.71591073, 0.16745684, 0.64799047, 1)
@@ -44,9 +43,6 @@ points = PackedVector3Array(-0.75368977, 0.875, -0.5410625, -0.72637916, 1, -0.5
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_aur7v"]
 points = PackedVector3Array(-0.40005875, 0, -0.5, -0.46838292, 0, -0.46838292, -0.40005875, 0.5, -0.5, 0.39996088, 0, -0.5, -0.5, 0, -0.40005875, -0.46838292, 0.5, -0.46838292, 0.39996088, 0.5, -0.5, 0.46828502, 0, -0.46838292, -0.5, 0.5, -0.40005875, -0.5, 0, 0.39996088, 0.46828502, 0.5, -0.46838292, 0.5, 0, -0.40005875, -0.5, 0.5, 0.39996088, -0.46838292, 0, 0.46828502, 0.5, 0.5, -0.40005875, 0.5, 0, 0.39996088, -0.46838292, 0.5, 0.46828502, -0.40005875, 0, 0.5, 0.5, 0.5, 0.39996088, 0.46828502, 0, 0.46828502, -0.40005875, 0.5, 0.5, 0.39996088, 0, 0.5, 0.46828502, 0.5, 0.46828502, 0.39996088, 0.5, 0.5)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_lp2uw"]
-radius = 0.19042076
 
 [node name="Main" type="Node3D"]
 
@@ -134,16 +130,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.533279, 0.4703451, 0.06966
 [node name="Player" parent="." instance=ExtResource("7_5r5j8")]
 transform = Transform3D(-0.99997693, 0, 0.0067892224, 0, 1, 0, -0.0067892224, 0, -0.99997693, 0.5700046, 0.04226896, 0.18012094)
 
-[node name="Coin" type="Area3D" parent="."]
+[node name="Coin" parent="." instance=ExtResource("9_aur7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.662055, 0.39050257, -0.6227429)
-script = ExtResource("9_ptpgp")
-
-[node name="Model" type="MeshInstance3D" parent="Coin"]
-mesh = ExtResource("10_2uqsa")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Coin"]
-transform = Transform3D(1.0308977, 0, 0, 0, 1.1069391, 0, 0, 0, 0.6550373, 0, 0.18041146, 0)
-shape = SubResource("SphereShape3D_lp2uw")
-
-[connection signal="body_entered" from="Coin" to="Coin" method="_on_body_entered"]

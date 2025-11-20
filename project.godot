@@ -15,6 +15,10 @@ run/main_scene="uid://xkx0e07x3w6o"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlayerStats="*res://Scripts/PlayerStats.gd"
+
 [input]
 
 more_forward={
