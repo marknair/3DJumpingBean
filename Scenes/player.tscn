@@ -1,13 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://4y3egkmar7q8"]
+[gd_scene load_steps=8 format=3 uid="uid://4y3egkmar7q8"]
 
 [ext_resource type="Script" uid="uid://t377d1bkr081" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="ArrayMesh" uid="uid://cv63qxwx7c2m2" path="res://Models/Characters/character-male-b.obj" id="1_v0iea"]
 [ext_resource type="Script" uid="uid://bf7vo745wm23q" path="res://Scripts/player_model.gd" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://b62n0341ybe7t" path="res://Scripts/PlayerUI.gd" id="4_fkybt"]
 [ext_resource type="Texture2D" uid="uid://4o2gegeyphbr" path="res://Sprites/hud_heartFull.png" id="4_vgqql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cvnsp"]
 radius = 0.17486572
 height = 0.34973145
+
+[sub_resource type="LabelSettings" id="LabelSettings_vgqql"]
+font_size = 38
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 transform = Transform3D(0.9986865, 0, 0.051237874, 0, 1, 0, -0.051237874, 0, 0.9986865, 0, 0, 0)
@@ -27,6 +33,7 @@ transform = Transform3D(1.3370095, 0, 3.7252903e-09, 0, 1.369, 0, -3.2782555e-07
 shape = SubResource("CapsuleShape3D_cvnsp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_fkybt")
 
 [node name="HealthContainer" type="HBoxContainer" parent="CanvasLayer"]
 offset_right = 40.0
@@ -51,3 +58,11 @@ texture = ExtResource("4_vgqql")
 [node name="Heart5" type="TextureRect" parent="CanvasLayer/HealthContainer"]
 layout_mode = 2
 texture = ExtResource("4_vgqql")
+
+[node name="ScoreText" type="Label" parent="CanvasLayer"]
+offset_left = 42.0
+offset_top = 59.0
+offset_right = 229.0
+offset_bottom = 112.0
+text = "Score: 500"
+label_settings = SubResource("LabelSettings_vgqql")
