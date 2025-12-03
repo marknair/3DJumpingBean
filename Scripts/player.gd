@@ -2,12 +2,16 @@ extends CharacterBody3D
 signal OnTakeDamage(hp: int)
 signal OnUpdateScore(score: int)
 
-@export var health : int = 3
+@export var health : int = 5
 @export var move_speed : float = 3.0
 @export var jump_force : float = 8.0
 @export var gravity : float = 20.0
 
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 @onready var camera : Camera3D = $Camera3D
+
+var coin_sfx : AudioStream = preload("res://Audio/coin.wav")
+var take_damage_sfx : AudioStream = preload("res://Audio/take_damage.wav")
 
 func _physics_process(delta: float) -> void:
 	if global_position.y < -5:
@@ -41,9 +45,12 @@ func _game_over():
 	
 func increase_score(amount: int):
 	PlayerStats.score += amount
-	print(PlayerStats.score)
+	OnUpdateScore.emit(PlayerStats.score)
+	_play_sound(coin_sfx)
 	
-	
+func _play_sound(sound: AudioStream):
+	audio.stream = sound
+	audio.play()
 	
 	
 	
