@@ -1,3 +1,81 @@
-[gd_scene format=3 uid="uid://12rkko52ln37"]
+[gd_scene load_steps=4 format=3 uid="uid://dspfya135qcqa"]
 
-[node name="Node3D" type="Node3D"]
+[ext_resource type="Texture2D" uid="uid://c7l8367n1obnj" path="res://Sprites/menu_background.png" id="1_1rerr"]
+[ext_resource type="Script" uid="uid://p4ueqrh2n0d7" path="res://Scenes/menu.gd" id="1_xhh6f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1rerr"]
+font_size = 66
+font_color = Color(0.92941177, 0.8980392, 0.9019608, 1)
+outline_color = Color(0.24705882, 0.27058825, 1, 1)
+shadow_size = 8
+shadow_color = Color(0.25490198, 0.28627452, 0.18039216, 0.8509804)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xhh6f")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1rerr")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.0
+offset_top = -187.0
+offset_right = 194.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "A 3D Adventure"
+label_settings = SubResource("LabelSettings_1rerr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -71.0
+offset_right = 99.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAY"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 25.0
+offset_right = 99.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT
+"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

@@ -35,13 +35,13 @@ func _physics_process(delta: float) -> void:
 func take_damage(amount: int):
 	health -= amount
 	OnTakeDamage.emit(health)
+	_play_sound(take_damage_sfx)
 	if health <= 0:
 		_game_over()
 		
 func _game_over():
 	PlayerStats.score = 0
-	get_tree().reload_current_scene()
-	#get_tree().change_scene_to_file("res://Scenes/Level_1.tscn")
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 	
 func increase_score(amount: int):
 	PlayerStats.score += amount
